@@ -1,6 +1,6 @@
-import React from 'react'
-import Index1 from './components/Todo/index1';
-
+import React,{useState}from 'react'
+import Todo from './components/Todo/Index1';
+import Counter from "./components/Counter/index2";
 
 const myTodoItems=[
   {
@@ -17,9 +17,12 @@ const myTodoItems=[
   }
 ]
 const App:React.FC = () => {
+  const [state,setState] =useState<boolean>(true);
   return (
     <div>
-      <Index1 items={myTodoItems}/>
+      <Todo items={myTodoItems}/>
+      <button onClick={(e)=>setState(!state)}>toggle</button>
+      {state&&<Counter/>}
     </div>
   )
 }

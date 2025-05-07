@@ -23,18 +23,14 @@ function App() {
     }
     return false;
   }
-
   const handClick =(index:number)=>{
     const stateCopy= Array.from(state);
     if(stateCopy[index]!==null)return;
-    
     stateCopy[index]= currentTurn;
-
     const win= checkWinner(stateCopy);
     if(win){
       alert(`${currentTurn} won the Game`);
     }
-
     setCurrentTurn(currentTurn==="X"?"O":"X");
     setState(stateCopy);
   }
